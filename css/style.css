@@ -15,10 +15,13 @@ text-align: center;
 #title{
   font-size: xx-large;
   color: #354259;
+  background-color: #ECE5C7;
+  text-align: center;
 }
 #formID{
   font-size: x-large;
   color:#354259 ;
+  margin-left: 50px;
 }
 #foodName{
   font-size: x-large;
@@ -31,4 +34,18 @@ text-align: center;
 #price{
   font-size: x-large;
   color:#354259 ;
+}
+.footer{
+  font-size: x-large;
+  background-color:#354259;
+  color:black ;
+}
+#nav{
+  font-size: x-large;
+  background-color:#ECE5C7; 
+  color: antiquewhite;
+}
+#sub{
+  font-size: x-large;
+  background-color:#ECE5C7 ;
 }
