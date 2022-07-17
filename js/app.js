@@ -1,26 +1,35 @@
 `use strict`
-const foodArr = [];
-function Food(foodID,foodName,type,price){
-    this.foodID = foodID;
+// const foodArr = [];
+function Food(foodName,type,price){
+    this.foodID = this.uniqueNum();
     this.foodName = foodName;
     this.type = type;
     this.price = price;
-    foodArr.push(this);
+    console.log(this);
+    // foodArr.push(this);
 };
+
+Food.prototype.uniqueNum = function(){
+    this.foodID = Math.floor(Math.random() * (9999 -1000) ) +1000;
+   return this.foodID;
+}
 const formEl = document.getElementById("formID");
 formEl.addEventListener("submit",handleSubmit);
 function handleSubmit(event){
     event.preventDefault();
-let foodID = event.target.foodID.value;
+// let foodID = event.target.foodID.value;
 let  foodName = event.target.foodName.value;
 let type = event.target.type.value;
 let price = event.target.price.value;
+const newType = new Food (foodName,type,price);
+
+newType.tableRender();
 
 };
 // console.log(e);
 // console.log(foodArr);
 
-const newType = new Food(foodID,foodName,type,price);
+// const newType = new Food(foodID,foodName,type,price);
 
 
 
@@ -41,12 +50,12 @@ Food.prototype.tableRender = function(){
     tabRow.appendChild(tabdata3);
     tabRow.appendChild(tabdata4);
     rendata.appendChild(tabRow);
-    const newType = new Food(foodID,foodName,type,price);
+    // const newType = new Food(foodID,foodName,type,price);
 }
-Food.prototype.uniqueNum = function(){
-    this.foodID = Math.floor(Math.random() * (9999 -1000) ) +1000;
-   return this.foodID;
-}
-for (let i=0; i<foodArr.length; i++){
-    foodArr[i].tableRender ();
-}
+// Food.prototype.uniqueNum = function(){
+//     this.foodID = Math.floor(Math.random() * (9999 -1000) ) +1000;
+//    return this.foodID;
+// }
+// for (let i=0; i<foodArr.length; i++){
+//     foodArr[i].tableRender ();
+// }
