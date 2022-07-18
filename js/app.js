@@ -1,12 +1,12 @@
 `use strict`
-// const foodArr = [];
+const foodArr = [];
 function Food(foodName,type,price){
     this.foodID = this.uniqueNum();
     this.foodName = foodName;
     this.type = type;
     this.price = price;
     console.log(this);
-    // foodArr.push(this);
+    foodArr.push(this);
 };
 
 Food.prototype.uniqueNum = function(){
@@ -24,6 +24,7 @@ let price = event.target.price.value;
 const newType = new Food (foodName,type,price);
 
 newType.tableRender();
+saveData();
 
 };
 // console.log(e);
@@ -59,3 +60,26 @@ Food.prototype.tableRender = function(){
 // for (let i=0; i<foodArr.length; i++){
 //     foodArr[i].tableRender ();
 // }
+
+function saveData(){
+    let stringifyedData = JSON.stringify(foodArr)
+    localStorage.setItem("food",stringifyedData)
+  
+};
+
+
+
+
+function getData(){
+    let retrievedData = localStorage.getItem("food");
+    let parsedData = JSON.parse(retrievedData);
+    if (parsedData != null){
+    // for (i = 0; i < parsedData.length; i++){
+    //     newType = new Food (parsedData[i].foodID,parsedData[i].foodName,parsedData[i].type,parsedData[i].price);
+    //     newType.tableRender();
+    // }
+    newType = new Food (parsedData[0].foodID,parsedData[0].foodName,parsedData[0].type,parsedData[0].price);
+      newType.tableRender();
+}
+}
+getData();
